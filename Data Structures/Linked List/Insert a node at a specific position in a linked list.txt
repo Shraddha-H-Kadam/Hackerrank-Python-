@@ -1,0 +1,17 @@
+def insertNodeAtPosition(head, data, position):
+    
+    head1=head
+    
+    tempNode= SinglyLinkedListNode(data)
+    if head is None:
+        head=tempNode
+        return head1
+    
+    curr = head
+    for i in range(position-1):
+        curr = curr.next
+
+    tempNode.next=curr.next
+    curr.next=tempNode    
+
+    return head1    
