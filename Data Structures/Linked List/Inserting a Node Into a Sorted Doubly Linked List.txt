@@ -1,0 +1,39 @@
+def sortedInsert(head, data):
+    head1= head
+    temp = DoublyLinkedListNode(data)
+    if head is None:
+        head.next = temp
+        return head1
+    if head.next is None:
+        if head.data< data:
+            head.next=temp
+            temp.prev=head
+            return head1
+        else:
+            temp.next=head
+            head.prev= temp
+            return head1
+    ctr =1
+    
+    while head != None:
+        if head.data > data:
+            break
+        else:
+            ctr+=1
+            p=head
+            head=head.next
+    if ctr==1:
+        temp.next = head
+        head.prev= temp
+        head1 = temp
+    elif head == None:
+        temp.prev=p
+        p.next=temp
+    else:
+        temp.next=head
+        temp.prev=head.prev
+        head.prev.next= temp
+        head.prev= temp
+
+    return head1
+
