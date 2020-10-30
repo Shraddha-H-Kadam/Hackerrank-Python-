@@ -1,0 +1,13 @@
+def has_cycle(head):
+    if (head == None):
+        return False
+    hare = head
+    tortoise = head.next
+    while (tortoise != hare) :
+        if (hare is None or hare.next is None):
+            return False
+        else:
+            hare = hare.next.next;
+            tortoise = tortoise.next;
+    return True
+        
